@@ -11,6 +11,6 @@
 
 -----
 
-##a标签下img设置高度,a标签高度崩塌
+## a标签下img设置高度,a标签高度崩塌
 
 因为a标签为内联元素,display:inline,要设置高度,需要display:block或inline-block
