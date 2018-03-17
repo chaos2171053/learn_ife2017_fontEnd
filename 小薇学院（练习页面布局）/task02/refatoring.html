@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>重构</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../tool/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./refatoring.css" />
+
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="nav">
+        <!-- 网站logo -->
+        <div class="nav__logo">
+            <img src="http://img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png" alt="logo" title="logo" class="nav__logo__img">
+        </div>
+        <!-- 导航链接 -->
+        <ul class="nav__link">
+            <li>导航链接1</li>
+            <li>导航链接2</li>
+            <li>导航链接3</li>
+            <li class="nav__link--active">导航链接4</li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="content-item">
+            <!-- 文章 -->
+            <article class="content__article">
+                <!-- 文章头部 -->
+                <header class="content__article__header">
+                    <h1 class="content__article__h1">文章一级标题</h1>
+                    <h2 class="content__article__h2">文章二级标题</h2>
+                    <h3 class="content__article__h3">
+                        <span>文章作者</span>
+                        <span class="content__article__pbtime">文章发表时间</span>
+                    </h3>
+                </header>
+                <!-- 文章内容 -->
+                <section>
+                    <p class="content__article_paragraph">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落<br>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        <a class="content__article__link" href="http://ife.baidu.com" target="_self">链接到百度前端学院</a>这是一个很长很长的段落
+                        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3491294821,2546341486&fm=58" class="content__article__img">长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长
+                    </p>
+                </section>
+            </article>
+        </div>
+        <div class="content-item">
+            <!-- 文章 -->
+            <article class="content__article">
+                <!-- 文章头部 -->
+                <header class="content__article__header">
+                    <h1 class="content__article__h1">文章一级标题</h1>
+                    <h2 class="content__article__h2">文章二级标题</h2>
+                    <h3 class="content__article__h3">
+                        <span>文章作者</span>
+                        <span class="content__article__pbtime">文章发表时间</span>
+                    </h3>
+                </header>
+                <!-- 文章内容 -->
+                <section>
+                    <p class="content__article_paragraph">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        <strong>换行了</strong>
+                        <br> 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        <a class="content__article__link" href="http://ife.baidu.com" target="_self">链接到百度前端学院</a>这是一个很长很长的段落
+                        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3491294821,2546341486&fm=58" class="content__article__img">长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长
+                        <a class="content__article__link" href="http://ife.baidu.com" target="_blank">新窗口链接到百度前端学院</a>
+                    </p>
+                    <ul class="content__article__list">
+                        <li>列表项目1</li>
+                        <li>列表项目2</li>
+                        <li>列表项目3</li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+        <div class="content-item">
+            <!-- 文章 -->
+            <article class="content__article">
+                <!-- 文章头部 -->
+                <header class="content__article__header">
+                    <h1>图片</h1>
+                </header>
+                <!-- 文章内容 -->
+                <section>
+                    <ul class="content__article__imglist">
+                        <li>
+                            <div>
+                                <div class="content__article__imglist__title"></div>
+                                <div class="content__article__imglist__img">
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2401881700,2342273471&fm=58">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+        <div class="content-item">
+            <!-- 文章 -->
+            <article class="content__article">
+                <!-- 文章头部 -->
+                <header class="content__article__header">
+                    <h1>文章一级标题</h1>
+                    <h2>文章二级标题</h2>
+                    <h3>
+                        <span class="content__article__author">文章作者</span>
+                        <span class="content__article__author">文章发表时间</span>
+                    </h3>
+                </header>
+                <!-- 文章内容 -->
+                <section>
+                    <ol class="content__article__rank">
+                        <li>排名1</li>
+                        <li>排名2</li>
+                        <li>排名3</li>
+                    </ol>
+                    <div>下面是一个表格</div>
+                    <table class="content__article__table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Savings</th>
+                                <th>Savings</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td>Sum</td>
+                                <td>$180</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>January</td>
+                                <td>$100</td>
+                                <td>$100</td>
+                            </tr>
+                            <tr>
+                                <td>February</td>
+                                <td>$80</td>
+                                <td>$80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+        </div>
+        <div class="content-item">
+            <article class="content__article">
+                <header class="content__article__header--side">
+                    <h1>这里是一个侧栏标题</h1>
+                </header>
+                <div>
+                    <form class="content__article__form">
+                        <div class="form__item">
+                            <label class="form__item__label">请输入邮箱地址</label>
+                            <div class="form__item__content">
+                                <div class="form__item__input">
+                                    <input class="input__inner" type="text" placeholder="这是一个文本输入框" />
+                                </div>
+                                <div class="form__itemt_errofinfo">
+                                    邮箱地址请按要求格式输入
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">请输入密码</label>
+                            <div class="form__item__content">
+                                <div class="form__item__input">
+                                    <input class="input__inner" type="password" placeholder="请输入密码" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">请重复输入密码</label>
+                            <div class="form__item__content">
+                                <div class="form__item__input">
+                                    <input class="input__inner" type="password" placeholder="请重复输入密码" />
+                                </div>
+                                <div class="form__itemt_errofinfo">
+                                    密码请为6-16位英文数字
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">性别</label>
+                            <div class="form__item__content">
+                                <div class="form__item__radio">
+                                    <label>
+                                        <input type="radio" name="sex" value="1" />男</label>
+                                    <label>
+                                        <input type="radio" name="sex" value="0" />女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">城市</label>
+                            <div class="form__item__content">
+                                <div class="form__item__select">
+                                    <select>
+                                        <option value="beijing">北京</option>
+                                        <option value="shenzhen">深圳</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">爱好</label>
+                            <div class="form__item__content">
+                                <div class="form__item__checkbox">
+                                    <label>
+                                        <input type="checkbox" value="sport" />运动</label>
+                                    <label>
+                                        <input type="checkbox" value="art" />艺术</label>
+                                    <label>
+                                        <input type="checkbox" value="science" />科学</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <label class="form__item__label">个人描述</label>
+                            <div class="form__item__content">
+                                <div class="form__item__textarea">
+                                    <textarea placeholder="请输入内容" rows="2" class="textarea__inner"></textarea>
+                                </div>
+                            </div>
+                            <button>确认提交</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </div>
+    <footer class="footer">版权所有chaos</footer>
+</body>
+
+</html>
