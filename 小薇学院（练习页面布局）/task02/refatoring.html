@@ -41,7 +41,8 @@
                 </header>
                 <!-- 文章内容 -->
                 <section>
-                    <p class="content__article_paragraph">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落<br>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                    <p class="content__article_paragraph">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
+                        <br>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
                         这是一个很长很长的段落这是一个很长很长的段落 这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落
                         <a class="content__article__link" href="http://ife.baidu.com" target="_self">链接到百度前端学院</a>这是一个很长很长的段落
                         <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3491294821,2546341486&fm=58" class="content__article__img">长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长 长很长的段落这是一个很长
@@ -84,14 +85,38 @@
             <article class="content__article">
                 <!-- 文章头部 -->
                 <header class="content__article__header">
-                    <h1>图片</h1>
+                    <h1 class="content__article__h1">图片</h1>
                 </header>
                 <!-- 文章内容 -->
                 <section>
                     <ul class="content__article__imglist">
                         <li>
-                            <div>
-                                <div class="content__article__imglist__title"></div>
+                            <div class="content__article_imglist__item">
+                                <div class="content__article__imglist__title">好看的照片</div>
+                                <div class="content__article__imglist__img">
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2401881700,2342273471&fm=58">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content__article_imglist__item">
+                                <div class="content__article__imglist__title">好看的照片</div>
+                                <div class="content__article__imglist__img">
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2401881700,2342273471&fm=58">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content__article_imglist__item">
+                                <div class="content__article__imglist__title">好看的照片</div>
+                                <div class="content__article__imglist__img">
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2401881700,2342273471&fm=58">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content__article_imglist__item">
+                                <div class="content__article__imglist__title">好看的照片</div>
                                 <div class="content__article__imglist__img">
                                     <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2401881700,2342273471&fm=58">
                                 </div>
@@ -106,11 +131,11 @@
             <article class="content__article">
                 <!-- 文章头部 -->
                 <header class="content__article__header">
-                    <h1>文章一级标题</h1>
-                    <h2>文章二级标题</h2>
-                    <h3>
-                        <span class="content__article__author">文章作者</span>
-                        <span class="content__article__author">文章发表时间</span>
+                    <h1 class="content__article__h1">文章一级标题</h1>
+                    <h2 class="content__article__h2">文章二级标题</h2>
+                    <h3 class="content__article__h3">
+                        <span>文章作者</span>
+                        <span class="content__article__pbtime">文章发表时间</span>
                     </h3>
                 </header>
                 <!-- 文章内容 -->
@@ -133,6 +158,7 @@
                             <tr>
                                 <td>Sum</td>
                                 <td>$180</td>
+                                <td></td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -154,11 +180,11 @@
         <div class="content-item">
             <article class="content__article">
                 <header class="content__article__header--side">
-                    <h1>这里是一个侧栏标题</h1>
+                    <h1 class="content__article__h1">这里是一个侧栏标题</h1>
                 </header>
                 <div>
                     <form class="content__article__form">
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">请输入邮箱地址</label>
                             <div class="form__item__content">
                                 <div class="form__item__input">
@@ -169,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">请输入密码</label>
                             <div class="form__item__content">
                                 <div class="form__item__input">
@@ -177,7 +203,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">请重复输入密码</label>
                             <div class="form__item__content">
                                 <div class="form__item__input">
@@ -188,7 +214,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">性别</label>
                             <div class="form__item__content">
                                 <div class="form__item__radio">
@@ -199,7 +225,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">城市</label>
                             <div class="form__item__content">
                                 <div class="form__item__select">
@@ -210,7 +236,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">爱好</label>
                             <div class="form__item__content">
                                 <div class="form__item__checkbox">
@@ -223,16 +249,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form__item">
+                        <div class="form__item cleafix">
                             <label class="form__item__label">个人描述</label>
                             <div class="form__item__content">
                                 <div class="form__item__textarea">
                                     <textarea placeholder="请输入内容" rows="2" class="textarea__inner"></textarea>
                                 </div>
                             </div>
-                            <button>确认提交</button>
                         </div>
                     </form>
+                    <button class="form__confirm__btn">确认提交</button>
                 </div>
             </article>
         </div>
