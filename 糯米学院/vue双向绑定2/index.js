@@ -19,9 +19,8 @@ p.walk = function (obj) {
             if (typeof val === 'object') {
                 new Observer(val)
             }
-
-            this.convet(key, val)
         }
+        this.convet(key, val)
     }
 }
 p.convet = function (key, val) {
@@ -29,15 +28,13 @@ p.convet = function (key, val) {
         enumerable: true,
         configurable: true,
         get: function () {
-            if(typeof key ==='object') {
-                console.log('获取key:' + key )
-            }
+            console.log('访问key' + key)
             return val
         },
         set: function (newVal) {
-            //debugger
-            console.log('设置key:' + key + '为:' + newVal)
-            if (newVal === val) return
+            if (typeof newVal == "object") {
+                new Observer(newVal);
+            }
             val = newVal
         }
     })
@@ -46,14 +43,14 @@ p.convet = function (key, val) {
 let app1 = new Observer({
     name: 'youngwind',
     age: 25
-  });
-  
-  let app2 = new Observer({
+});
+
+let app2 = new Observer({
     university: 'bupt',
     major: 'computer'
-  });
+});
 
 app1.data.name
 app1.data.age = 100
-app2.data.university 
+app2.data.university
 app2.data.major = 'science' 
