@@ -42,7 +42,7 @@ p.emit = function (type) {
 }
 /**
  * 为每个key添加订阅
- * @param {Object} key 
+ * @param {Object} obj 
  */
 p.addWatcher = function(obj) {
    for( let key in  obj) {
@@ -57,6 +57,10 @@ p.addWatcher = function(obj) {
        }
    }
 }
+/**
+ * 遍历构造函数中传入的对象
+ * @param {object} obj 
+ */
 p.walk = function (obj) {
     let val
     for (let key in obj) {
@@ -69,6 +73,11 @@ p.walk = function (obj) {
         this.convet(key, val)
     }
 }
+/**
+ * 为对象设置键值对
+ * @param {string} key 
+ * @param {*} val 
+ */
 p.convet = function (key, val) {
     let that = this
     Object.defineProperty(this.data, key, {
@@ -88,15 +97,31 @@ p.convet = function (key, val) {
         }
     })
 }
-
-p.$watch = function () {
-
+/**
+ * 取消订阅事件
+ * @param {string} key 键 
+ * @param {funciton} fn 回调函数，不传则取消该键绑定的所有事件
+ */
+p.remove = function(key,fn){
+    let fns = this.watchers[key]
+    let len = fns.length
+    // 如果key没有被人订阅，则直接返回
+    if(!fns) {
+        return false
+    }
+    // 如果没有传入具体的回调，取消该key所有订阅
+    if(!fn) {
+        fns && (fns.length = 0)
+    }else {
+        for(let i = 0;i<len;i++) {
+            let _fn = fns[i]
+            if(_fn===fn) {
+                fns.slice(i,1)
+            }
+        }
+    }
 }
 let app = new Observer({
     name: 'chaos',
     age: 24
 });
-
-// app.watch('age', function(age) {
-//     console.log(`我的年纪变了，现在已经是：${age}岁了`)
-// });
