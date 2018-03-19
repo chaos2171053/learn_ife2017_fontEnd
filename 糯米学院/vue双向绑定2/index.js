@@ -5,12 +5,38 @@
  */
 function Observer(data) {
     this.data = data
+    this.watchers = {}
     this.walk(data)
 }
 
 let p = Observer.prototype
 
 
+/**
+ * 监听者
+ * @param {string} type 
+ * @param {funciton} callback
+ */
+p.watch = function (type, callback) {
+    if(!(type in this.watchers)) {
+        this.watchers[type] = [];
+    }
+    this.watchers[type].push(callback);
+    console.log(this.watchers)
+    return this;
+}
+/**
+ * 触发事件
+ * @param {sring} type 
+ */
+p.emit = function (type) {
+    let that = this;
+    let handlerArgs = Array.prototype.slice.call(arguments, 1)
+    for (let i = 0, len = that.watchers[type].length; i < len; i++) {
+        that.watchers[type][i].apply(that, handlerArgs)
+    }
+    return that
+}
 p.walk = function (obj) {
     let val
     for (let key in obj) {
@@ -24,11 +50,11 @@ p.walk = function (obj) {
     }
 }
 p.convet = function (key, val) {
+    let that = this
     Object.defineProperty(this.data, key, {
         enumerable: true,
         configurable: true,
         get: function () {
-            console.log('访问key' + key)
             return val
         },
         set: function (newVal) {
@@ -36,21 +62,21 @@ p.convet = function (key, val) {
                 new Observer(newVal);
             }
             val = newVal
+            that.emit(key,val)
+            
+
         }
     })
 }
 
-let app1 = new Observer({
-    name: 'youngwind',
-    age: 25
+p.$watch = function () {
+
+}
+let app = new Observer({
+    name: 'chaos',
+    age: 24
 });
 
-let app2 = new Observer({
-    university: 'bupt',
-    major: 'computer'
+app.watch('age', function(age) {
+    console.log(`我的年纪变了，现在已经是：${age}岁了`)
 });
-
-app1.data.name
-app1.data.age = 100
-app2.data.university
-app2.data.major = 'science' 
