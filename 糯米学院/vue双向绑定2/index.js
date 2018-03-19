@@ -7,6 +7,7 @@ function Observer(data) {
     this.data = data
     this.watchers = {}
     this.walk(data)
+    this.addWatcher(this.data)
 }
 
 let p = Observer.prototype
@@ -22,7 +23,6 @@ p.watch = function (type, callback) {
         this.watchers[type] = [];
     }
     this.watchers[type].push(callback);
-    console.log(this.watchers)
     return this;
 }
 /**
@@ -32,10 +32,30 @@ p.watch = function (type, callback) {
 p.emit = function (type) {
     let that = this;
     let handlerArgs = Array.prototype.slice.call(arguments, 1)
+    if(!(type in this.watchers)) {
+        return 
+    }
     for (let i = 0, len = that.watchers[type].length; i < len; i++) {
         that.watchers[type][i].apply(that, handlerArgs)
     }
     return that
+}
+/**
+ * 为每个key添加订阅
+ * @param {Object} key 
+ */
+p.addWatcher = function(obj) {
+   for( let key in  obj) {
+       if(obj.hasOwnProperty(key)) {
+           this.watch(key,function(){
+               let value = Array.prototype.splice.call(arguments,0)[0]
+               if(typeof value ==='object') {
+                   value = JSON.stringify(value)
+               }
+               console.log(`${key}的值变为${value}`)
+           })
+       }
+   }
 }
 p.walk = function (obj) {
     let val
@@ -77,6 +97,6 @@ let app = new Observer({
     age: 24
 });
 
-app.watch('age', function(age) {
-    console.log(`我的年纪变了，现在已经是：${age}岁了`)
-});
+// app.watch('age', function(age) {
+//     console.log(`我的年纪变了，现在已经是：${age}岁了`)
+// });
