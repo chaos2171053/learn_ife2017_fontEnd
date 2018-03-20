@@ -1,0 +1,76 @@
+body {
+    background: #fff;
+    padding: 20px;
+}
+.bd--gray{
+    border: 1px solid #999;
+}
+.main__content,.sub__content,.extra__content{
+    float: left;
+}
+.sub__content,.extra__content {
+    background: #fff;
+}
+.main--wrapper {
+    padding: 20px 140px 20px 220px;
+    min-width: 1040px;
+    background: #eee;
+}
+.google__img {
+    max-width: 80px;
+    height: 80px;
+}
+.clearfix:after {
+    display: block;
+    content: '.';
+    visibility: hidden;
+    clear: both;
+    height: 0;
+}
+.clearfix {
+    *zoom: 1;
+}
+/* 中间栏目 */
+.main__content {
+    width: 100%;
+    padding: 0 20px;
+}
+.main__content__article {
+    background: #fff;
+    padding: 20px;
+}
+.article__header {
+    margin-bottom: 20px;
+}
+.main__content__article p {
+    margin-top: 20px;
+}
+.main__content__article p:nth-last-of-type(n+2) {
+    margin-bottom: 20px;
+}
+/* 左边栏目 */
+.sub__content {
+    width: 200px;
+    margin-left: -100%;
+    position: relative;
+    left: -200px;
+    padding: 10px;
+}
+.sub__team__logo {
+    float: left;
+}
+.sub__team__name {
+    margin-left: 80px;
+    text-align: center;
+}
+/* 右边栏目 */
+.extra__content {
+    width: 120px;
+    margin-left: -120px;
+    position: relative;
+    right: -120px;
+    padding: 20px;
+}
+.extra__persoal__logo:nth-last-of-type(n+2) {
+    margin-bottom: 20px;
+}
