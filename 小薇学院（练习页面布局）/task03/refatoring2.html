@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>重构三栏布局---双飞翼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../tool/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./refatoring2.css" />
+</head>
+
+<body>
+    <div class="app clearfix bd--gray">
+        <div class="main">
+            <div class="main__content bd--gray">
+                <article class="main__content__article ">
+                    <header class="article__header">
+                        <h1>微前端 - 将微服务理念延伸到前端开发中</h1>
+                    </header>
+                    <section>
+                        <p>本文描述了采用不同 JavaScript 技术框架的多个团队中协同构建一个现代化前端 Web 应用所需要的技术、策略和方法。</p>
+                        <h2>什么是为前端</h2>
+                        <p>微前端这个术语最初来自 2016 年的 ThoughtWorks 技术雷达[ https://www.thoughtworks.com/radar/techniques/micro-frontends
+                            ]，它将微服务的概念扩展到了前端领域。目前的趋势是构建一个功能丰富且强大的前端应用，即单页面应用(SPA)，其本身一般都是建立在一个微服务架构之上。前端层通常由一个单独的团队开发，随着时间的推移，会变得越来越庞大而难以维护。这就是传说中的前端巨无霸(Frontend
+                            Monolith) [ https://www.youtube.com/watch?v=pU1gXA0rfwc ]。 微前端背后的理念是将一个网站或者 Web App 当成特性的组合体，每个特性都由一个独立的团队负责。每个团队都有擅长的特定业务领域或是它关心的任务。这里，一个团队是跨职能的，它可以端到端，从数据库到用户界面完整的开发它所负责的功能。
+                            然而，这个概念并不新鲜，过去它叫针对垂直系统的前端一体化或独立系统。不过微前端显然是一个更加友好并且不那么笨重的术语。
+                        </p>
+                        <h2>什么是现代化前端应用</h2>
+                        <p>在介绍中我使用了措辞“构建一个现代化前端应用”，让我们先给出一些这个术语有关的设定。 从一个更广泛的角度来看，Aral Balkan 曾写过一个相关的博客，他把这个概念叫做文档-应用连续统一体。他提出了一个滑动比例尺的概念，在比例尺的最左边是一个网站，由静态文档构成，通过链接相互连接；最右边是一个纯行为驱动的，几乎没内容的应用程序，比如在线图片编辑器。
+                            如果你把你的项目定位在这个范围的左侧，那在 Web 服务器级别的集成会比较合适。在这个模型中，服务器会收集页面中各个组件的内容并将其 HTML 字符串连接起来返回给用户。内容更新则采用从服务端重新加载的方式或者通过
+                            ajax 进行部分替换。Gustaf Nilsson Kotte 针对这个主题写过一篇综合性的文章。
+                        </p>
+                    </section>
+                </article>
+            </div>
+        </div>
+        <div class="sub bd--gray clearfix">
+            <div class="sub__team__logo">
+                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                />
+            </div>
+            <div class="sub__team__name">
+                团队名称
+            </div>
+        </div>
+        <div class="extra bd--gray">
+            <div class="extra__personal__logo__list">
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+                <div class="extra__persoal__logo bd--gray">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" alt="google" class="google__img"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
