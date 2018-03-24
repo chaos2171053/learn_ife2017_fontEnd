@@ -3,11 +3,11 @@
  * @constructor
  * @param {any} data 
  */
-function Observer(data) {
+function Observer(data,key) {
     this.data = data
     this.watchers = {}
     this.walk(data)
-    this.addWatcher(this.data)
+    this.addWatcher(this.data,key)
 }
 
 let p = Observer.prototype
@@ -19,7 +19,7 @@ let p = Observer.prototype
  * @param {funciton} callback
  */
 p.watch = function (type, callback) {
-    if(!(type in this.watchers)) {
+    if (!(type in this.watchers)) {
         this.watchers[type] = [];
     }
     this.watchers[type].push(callback);
@@ -32,8 +32,8 @@ p.watch = function (type, callback) {
 p.emit = function (type) {
     let that = this;
     let handlerArgs = Array.prototype.slice.call(arguments, 1)
-    if(!(type in this.watchers)) {
-        return 
+    if (!(type in this.watchers)) {
+        return
     }
     for (let i = 0, len = that.watchers[type].length; i < len; i++) {
         that.watchers[type][i].apply(that, handlerArgs)
@@ -43,20 +43,28 @@ p.emit = function (type) {
 /**
  * 为每个key添加订阅
  * @param {Object} obj 
+ * @param {string} parantKey
  */
-p.addWatcher = function(obj) {
-   for( let key in  obj) {
-       if(obj.hasOwnProperty(key)) {
-           this.watch(key,function(){
-               let value = Array.prototype.splice.call(arguments,0)[0]
-               if(typeof value ==='object') {
-                   value = JSON.stringify(value)
-               }
-               console.log(`${key}的值变为${value}`)
-           })
-       }
-   }
+p.addWatcher = function (obj, parantKey) {
+    let len,
+        val;
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            this.watch(key, function () {
+                let value = Array.prototype.splice.call(arguments, 0)[0]
+                if (typeof value === 'object') {
+                    value = JSON.stringify(value)
+                }
+                if(parantKey){
+                    key = parantKey
+                }
+                console.log(`${key}的值变为${value}`)
+            })
+        }
+    }
 }
+//遍历对象获取key的长度len，如果len为0，则没有子元素，如果不为0，继续遍历，需要记录每次遍历key时的父元素 
+
 /**
  * 遍历构造函数中传入的对象
  * @param {object} obj 
@@ -67,7 +75,7 @@ p.walk = function (obj) {
         if (obj.hasOwnProperty(key)) {
             val = obj[key]
             if (typeof val === 'object') {
-                new Observer(val)
+                new Observer(val,key)
             }
         }
         this.convet(key, val)
@@ -88,12 +96,10 @@ p.convet = function (key, val) {
         },
         set: function (newVal) {
             if (typeof newVal == "object") {
-                new Observer(newVal);
+                new Observer(newVal,key);
             }
             val = newVal
-            that.emit(key,val)
-            
-
+            that.emit(key, val)
         }
     })
 }
@@ -102,26 +108,37 @@ p.convet = function (key, val) {
  * @param {string} key 键 
  * @param {funciton} fn 回调函数，不传则取消该键绑定的所有事件
  */
-p.remove = function(key,fn){
+p.remove = function (key, fn) {
     let fns = this.watchers[key]
     let len = fns.length
     // 如果key没有被人订阅，则直接返回
-    if(!fns) {
+    if (!fns) {
         return false
     }
     // 如果没有传入具体的回调，取消该key所有订阅
-    if(!fn) {
+    if (!fn) {
         fns && (fns.length = 0)
-    }else {
-        for(let i = 0;i<len;i++) {
+    } else {
+        for (let i = 0; i < len; i++) {
             let _fn = fns[i]
-            if(_fn===fn) {
-                fns.slice(i,1)
+            if (_fn === fn) {
+                fns.slice(i, 1)
             }
         }
     }
 }
-let app = new Observer({
-    name: 'chaos',
-    age: 24
+let app2 = new Observer({
+    name: {
+        firstName:{
+            name:'chaos'
+        },
+        lastName: '666'
+    },
+    age: 25
 });
+
+
+app2.data.name.firstName.name = 'hahaha';
+// 输出：我的姓名发生了变化，可能是姓氏变了，也可能是名字变了。
+app2.data.name.lastName = 'blablabla';
+// 输出：我的姓名发生了变化，可能是姓氏变了，也可能是名字变了。

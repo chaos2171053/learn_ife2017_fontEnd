@@ -1,0 +1,78 @@
+body {
+    padding: 20px;
+    min-width: 1040px;
+}
+.content--wrapper {
+    background: #eee;
+    padding: 20px;
+    
+}
+.boerder--common {
+    border: 1px solid #999;
+}
+.left__content,
+.right__content,
+.main__content {
+    float: left;
+}
+.left__content,
+.right__content {
+    background: #fff;
+}
+/* 清除浮动 */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* 左边侧栏 */
+
+.left__content {
+    width: 200px;
+    height: 120px;
+    margin-left: -100%;
+    padding: 20px;
+    position: relative;
+}
+.left__team__logo {
+    width: 80px;
+    height: 80px;
+    float:left;
+}
+.google__img {
+    max-width: 80px;
+    height: 80px;
+}
+.left__team__title {
+    margin-left: 80px;
+    text-align: center;
+}
+/* 中间主要内容 */
+
+.main__content {
+    margin-left: 220px;
+    margin-right: 140px;
+    padding: 20px;
+}
+
+/* 右边侧栏 */
+
+.right__content {
+    width: 120px;
+    margin-left: -120px;
+    padding: 19px;
+}
+.right__team__logo {
+    height: 80px;
+    width: 80px;
+}
+.right__content>div:nth-of-type(n+2){
+    margin-top: 20px;
+}
