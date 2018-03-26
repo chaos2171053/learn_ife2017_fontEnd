@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平垂直居中</title>
+    <link rel="stylesheet" type="text/css" href="../../tool/reset.css"></link>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+
+<body>
+    <div>利用父元素padding</div>
+    <div class="main use--padding">
+
+        <div class="block">
+
+            <div class="circle circle--left--top">
+            </div>
+
+            <div class="circle circle--right--bottom"></div>
+        </div>
+    </div>
+    <div>利用子元素margin--auto</div>
+    <div class="main use--child--margin--auto">
+        <div class="block ">
+
+            <div class="circle circle--left--top">
+            </div>
+
+            <div class="circle circle--right--bottom"></div>
+        </div>
+    </div>
+    <div>利用子元素absolute布局50% + -50%</div>
+    <div class="main use--child--absolute">
+        <div class="block ">
+
+            <div class="circle circle--left--top">
+            </div>
+
+            <div class="circle circle--right--bottom"></div>
+        </div>
+    </div>
+    <div>利用子元素absolute + margin : auto</div>
+    <div class="main use--child--absolute--margin">
+        <div class="block ">
+
+            <div class="circle circle--left--top">
+            </div>
+
+            <div class="circle circle--right--bottom"></div>
+        </div>
+    </div>
+    <div>利用flex</div>
+    <div class="main use--flex">
+        <div class="block">
+            <div class="circle circle--left--top"></div>
+            <div class="circle circle--right--bottom"></div>
+        </div>
+    </div>
+    <div>利用table</div>
+    <div class="main use--table">
+        <div class="use--table--wrapper">
+            <div class="block">
+                <div class="circle circle--left--top"></div>
+                <div class="circle circle--right--bottom"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

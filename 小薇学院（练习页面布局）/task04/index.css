@@ -1,0 +1,103 @@
+.main {
+    height: 500px;
+    width: 500px;
+    border: 1px solid #eee;
+}
+
+.block {
+    height: 200px;
+    width: 400px;
+    background: #ccc;
+}
+
+.use--padding .block {
+    position: relative;
+}
+
+.circle {
+    background: #fc0;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}
+
+.circle--left--top {
+    top: 0;
+    left: 0;
+    border-radius: 0 0 100% 0;
+}
+
+.circle--right--bottom {
+    bottom: 0;
+    right: 0;
+    border-radius: 100% 0 0 0;
+}
+
+/* 利用父元素padding */
+
+.use--padding {
+    padding: 150px 50px;
+}
+
+/* 利用子元素margin auto */
+
+.use--child--margin--auto .block {
+    margin: 150px auto;
+    position: relative;
+}
+
+/* 利用子元素absolute布局50% + -50% */
+
+.use--child--absolute {
+    position: relative;
+}
+
+.use--child--absolute .block {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+/* 利用子元素absolute + margin : auto */
+
+.use--child--absolute--margin {
+    position: relative;
+}
+
+.use--child--absolute--margin .block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* 利用flex */
+.use--flex {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.use--flex .block {
+    position: relative;
+}
+/* 利用table */
+.use--table {
+    display: table;
+}
+.use--table--wrapper {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+}
+.use--table--wrapper  .block {
+    display: inline-block;
+    position: relative;
+}
