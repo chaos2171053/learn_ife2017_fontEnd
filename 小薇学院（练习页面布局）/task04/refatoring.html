@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../tool/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./refatoring.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- 如果父元素、子元素宽高已知，设置padding -->
+        <div class="item by--padding">
+            <div class="block">
+                <div class="block__cirecle--top"></div>
+                <div class="block__cirecle--bottom"></div>
+            </div>
+        </div>
+        <!-- 如果父高度已知，子元素宽高已知，设置margin：(父高-子高）/2 auto; -->
+        <div class="item by--margin0--auto">
+            <div class="block">
+                <div class="block__cirecle--top"></div>
+                <div class="block__cirecle--bottom"></div>
+            </div>
+        </div>
+        <!-- 父元素设置relative，子元素absolute，利用transform -->
+        <div class="item by--transform">
+            <div class="block">
+                <div class="block__cirecle--top"></div>
+                <div class="block__cirecle--bottom"></div>
+            </div>
+        </div>
+        <!-- flex 布局 -->
+        <div class="item by--flex">
+            <div class="block">
+                <div class="block__cirecle--top"></div>
+                <div class="block__cirecle--bottom"></div>
+            </div>
+        </div>
+
+        <!-- 父元素relative，子元素abosulute，top、left、right、bottoem为0，margin：auto -->
+        <div class="item by--tlrb0">
+            <div class="block">
+                <div class="block__cirecle--top"></div>
+                <div class="block__cirecle--bottom"></div>
+            </div>
+        </div>
+        <!-- 父元素table，子元素包裹层table-cell，text-align为center，vertical-align: middle，子元素inline-block -->
+        <div class="item by--table">
+            <div class="by--table--wrapper">
+                <div class="block">
+                    <div class="block__cirecle--top"></div>
+                    <div class="block__cirecle--bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
