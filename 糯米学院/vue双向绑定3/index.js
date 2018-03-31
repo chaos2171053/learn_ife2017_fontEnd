@@ -63,7 +63,7 @@ p.addWatcher = function (obj, parantKey) {
         }
     }
 }
-//遍历对象获取key的长度len，如果len为0，则没有子元素，如果不为0，继续遍历，需要记录每次遍历key时的父元素 
+
 
 /**
  * 遍历构造函数中传入的对象
